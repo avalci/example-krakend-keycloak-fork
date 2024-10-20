@@ -22,12 +22,13 @@ This weekend project was created to test out and offer a guide for the following
 
 Tooling versions used in this example (others might work, but were not tested):
 
-- Python 3.7.3
-- Docker 19.03.2
-- Docker Compose 1.24.1
-- KrakenD 0.9
-- Keycloak 7.0.0
-- Postman 7.8.0
+- Python 3.11.9
+- Docker 27.1.1
+- Docker Compose 2.29.1
+- KrakenD 2.7.2
+- Keycloak 26.0.1
+- Postman 11.17.1
+- Postgres 16.4
 
 ### Deployment
 
@@ -37,15 +38,15 @@ Tooling versions used in this example (others might work, but were not tested):
 
 ```bash
 # install and load virtualenv
-python3.7 -m pip install virtualenv
-python3.7 -m virtualenv venv
+python -m pip install virtualenv
+python -m virtualenv venv
 source ./venv/bin/activate
 
 # install requirements
-pip install -r server/requirements.txt
+pip install -r requirements.txt
 
 # run service
-python server/main.py
+python main.py
 ```
 The service should be available at http://0.0.0.0:8400 and exposes the following endpoints:
 ```
@@ -103,6 +104,10 @@ Steps:
     - use the token to perform the request
 7. krakend is configured to forward the Authorization header; the application does a print-out of this header, and you can
 use [http://jwt.io](http://jwt.io) to decode it - it will contain info about the client (such as their role) that keycloak added
+
+## User
+
+[Login](http://localhost:8403/realms/myrealm/account)
 
 ## Disclaimer
 
