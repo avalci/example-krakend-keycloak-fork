@@ -17,6 +17,7 @@ services:
       - keycloak-net
     ports:
       - "8403:8080"  # expose to host port 8403
+      - "9000:9000"
     command: start-dev
     environment:
       DB_VENDOR: POSTGRES
@@ -27,6 +28,8 @@ services:
       DB_PASSWORD: password
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HEALTH_ENABLED: true
+      KC_METRICS_ENABLED: true
 
   krakend-designer:
     image: devopsfaith/krakendesigner:latest
